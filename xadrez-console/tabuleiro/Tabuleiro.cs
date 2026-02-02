@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using tabuleiro;
 
 namespace xadrez_console.tabuleiro
 {
@@ -19,6 +20,12 @@ namespace xadrez_console.tabuleiro
         public Peca peca (int linha, int coluna)// metodo publico que pode acessar uma peça. A matriz peca so pode ser acessada atraves daqui
         {
             return pecas[linha, coluna];
+        }
+
+        public void colocarPeca(Peca p, Posicao pos)//metodo para casar peca com posicao
+        {
+            pecas[pos.linha, pos.coluna] = p;// acessa a matriz da classe e coloca p em uma posicao da matriz
+            p.posicao = pos;//'p' de peca é igual 'pos' de posição
         }
     }
 }

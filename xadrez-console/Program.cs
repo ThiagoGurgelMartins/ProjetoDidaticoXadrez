@@ -14,7 +14,9 @@ class Program
 
             tab.colocarPeca(new Torre(tab, Cor.Preta), new Posicao(0, 0));//chamo o tabuleiro, depois chamo metodo colocarPeca(Tabuleiro) que vai pedir uma peca e uma posicao
             tab.colocarPeca(new Torre(tab, Cor.Preta), new Posicao(0, 7));
-            tab.colocarPeca(new Rei(tab, Cor.Preta), new Posicao(0, 4));
+            tab.colocarPeca(new Rei(tab, Cor.Preta), new Posicao(0,4));
+
+            tab.colocarPeca(new Torre(tab, Cor.Branca), new Posicao(7, 7));
 
             Tela.imprimirTabuleiro(tab);// chamou a classe Tela, disse o metodo que será usado e deu a referencia da classe main
 

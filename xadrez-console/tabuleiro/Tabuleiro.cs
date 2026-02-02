@@ -22,10 +22,42 @@ namespace xadrez_console.tabuleiro
             return pecas[linha, coluna];
         }
 
-        public void colocarPeca(Peca p, Posicao pos)//metodo para casar peca com posicao
+        public Peca peca(Posicao pos)// sobrecarga
+        { 
+            return pecas[pos.linha, pos.coluna];
+        }
+
+        public void colocarPeca(Peca p, Posicao pos)//metodo para casar peca com posicao, quando chamar o metodo preco dizer um tipo peca e um tipo Posicao
         {
+            if (existePeca(pos))
+            {
+                throw new TabuleiroException("Ja existe uma peca nessa posição!");
+            }
             pecas[pos.linha, pos.coluna] = p;// acessa a matriz da classe e coloca p em uma posicao da matriz
             p.posicao = pos;//'p' de peca é igual 'pos' de posição
+        }
+
+        public bool existePeca(Posicao pos)
+        {
+            validarPosicao(pos);
+            return peca(pos) != null;
+        }
+        
+        public bool posicaoValida(Posicao pos)// metodo pra validar se a posicao é valida
+        {
+            if (pos.linha > 7 || pos.linha>= linhas || pos.coluna<0 || pos.coluna>=colunas)
+            { 
+                return false;
+            }
+            else
+            { return true; }
+        }
+        public void validarPosicao(Posicao pos)
+        {
+            if (!posicaoValida(pos))
+            {
+                throw new TabuleiroException("Posicicao invalida!");
+            }
         }
     }
 }

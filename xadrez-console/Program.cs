@@ -1,11 +1,14 @@
 ﻿// See https://aka.ms/new-console-template for more information
-using tabuleiro;
+using xadrez_console.tabuleiro;
 
 class Program
 {
     static void Main(string[] args)
     {
+        Tabuleiro tab = new Tabuleiro(8, 8);
 
+
+        Console.ReadLine();
     } 
         
 }
